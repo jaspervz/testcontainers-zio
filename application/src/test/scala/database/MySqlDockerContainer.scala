@@ -8,7 +8,7 @@ case class MySqlDockerContainer(jdbcUrl: String, username: String, password: Str
 
 object MySqlDockerContainer:
 
-  def layer: ZLayer[Scope, Throwable, MySqlDockerContainer] = ZLayer:
+  val layer: ZLayer[Scope, Throwable, MySqlDockerContainer] = ZLayer:
     ZIO
       .fromAutoCloseable:
         ZIO.attemptBlocking:

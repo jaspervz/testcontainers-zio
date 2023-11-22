@@ -3,7 +3,7 @@ package api
 import domain.Todo
 import io.circe.syntax.*
 import io.circe.generic.auto.*
-import io.circe.{DecodingFailure, parser}
+import io.circe.{DecodingFailure, ParsingFailure, parser}
 import service.TodoService
 import zio.ZIO
 import zio.http.*
@@ -45,4 +45,5 @@ object TodoApi:
       }
    ).handleError:
      case error: DecodingFailure => Response.badRequest(error.getMessage)
+     case error: ParsingFailure => Response.badRequest(error.getMessage)
      case other => Response.internalServerError(other.getMessage)
