@@ -4,6 +4,7 @@ import org.testcontainers.containers.DockerComposeContainer
 import zio.{Scope, ZIO, ZLayer}
 
 import java.io.File
+import scala.util.Properties
 
 case class DockerCompose(applicationUrl: String)
 
@@ -18,6 +19,8 @@ object DockerCompose:
       ZIO.attemptBlocking:
         val containers = DockerComposeContainer(File(getClass.getResource("/docker-compose.yml").getFile))
         containers.withExposedService(serviceName, servicePort)
+        val serviceTag = Properties.propOrElse("build", "latest")
+        containers.withEnv("BUILD_TAG", serviceTag)
         containers.start()
         containers
     }.map { containers =>

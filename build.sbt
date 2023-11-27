@@ -1,5 +1,7 @@
 import sbt.Keys.testFrameworks
 
+import scala.util.Properties
+
 ThisBuild / version := "0.1.0-SNAPSHOT"
 
 ThisBuild / scalaVersion := "3.3.1"
@@ -99,7 +101,7 @@ lazy val application = (project in file("application"))
     Docker / packageName := "application",
     dockerBaseImage := "eclipse-temurin:19.0.2_7-jdk",
     dockerExposedPorts += 8080,
-    dockerAliases += dockerAlias.value.withTag(Some("latest"))
+    dockerAliases ++= Seq(Properties.propOrNone("build"), Some("latest")).flatten.map(tag => dockerAlias.value.withTag(Some(tag)))
   )
 
 lazy val `integration-test` = (project in file("integration-test"))

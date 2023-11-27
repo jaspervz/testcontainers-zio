@@ -9,7 +9,7 @@ import zio.{Random, Task, ZIO}
 object TodoRepositoryTest:
   private val description = "a description"
 
-  def spec = suite("TodoRepository")(
+  def spec: Spec[Transactor[Task], Throwable] = suite("TodoRepository")(
     test("should create a todo"):
       for
         repository <- ZIO.service[TodoRepository]
