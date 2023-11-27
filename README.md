@@ -14,6 +14,10 @@ retrieve the mapping port number so you can connect to the Docker container(s).
 The sample project is a simple REST API for to do items with a create, delete, get, and
 get all endpoint.
 
+Besides that, it contains the example [AerospikeContainer](application/src/test/scala/database/AerospikeContainer.scala) on how to use
+Testcontainers' `GenericContainer` for when there is
+no container available in the Testcontainers project.
+
 ### Repository
 The [`TodoRepository`](application/src/main/scala/repository/TodoRepository.scala) is responsible for storing the to do's in the database.
 `TodoRepositoryTest` contains the tests for the repository. There are different Specs
