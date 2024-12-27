@@ -21,7 +21,7 @@ lazy val zioDependencies = Seq(
 )
 
 lazy val zioHttpDependencies = Seq(
-  "dev.zio" %% "zio-http"         % "3.0.0-RC3"
+  "dev.zio" %% "zio-http"         % "3.0.1"
 )
 
 lazy val zioTestDependencies = Seq(

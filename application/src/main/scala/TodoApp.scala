@@ -8,7 +8,7 @@ import service.TodoServiceLive
 
 object TodoApp extends ZIOAppDefault:
   override def run =
-    Server.serve(TodoApi.routes.toHttpApp).provideSome[Scope](
+    Server.serve(TodoApi.routes).provideSome[Scope](
       ApplicationConfig.databaseConfigLayer,
       DatabaseLive.layer,
       Server.default,
