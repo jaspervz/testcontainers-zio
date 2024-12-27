@@ -10,7 +10,7 @@ lazy val zioVersion = "2.0.19"
 
 lazy val zioConfigVersion = "3.0.7"
 
-lazy val flywayVersion = "9.22.3"
+lazy val flywayVersion = "11.1.0"
 
 lazy val circeVersion = "0.14.6"
 
