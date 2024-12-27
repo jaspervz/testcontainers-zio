@@ -6,15 +6,15 @@ ThisBuild / version := "0.1.0-SNAPSHOT"
 
 ThisBuild / scalaVersion := "3.6.2"
 
-lazy val zioVersion = "2.0.19"
+lazy val zioVersion = "2.0.22"
 
 lazy val zioConfigVersion = "3.0.7"
 
 lazy val flywayVersion = "11.1.0"
 
-lazy val circeVersion = "0.14.6"
+lazy val circeVersion = "0.14.10"
 
-lazy val testContainersVersion = "1.19.2"
+lazy val testContainersVersion = "1.20.4"
 
 lazy val zioDependencies = Seq(
   "dev.zio" %% "zio"              % zioVersion
@@ -26,8 +26,8 @@ lazy val zioHttpDependencies = Seq(
 
 lazy val zioTestDependencies = Seq(
   "dev.zio" %% "zio-test"          % zioVersion % Test,
-  "dev.zio" %% "zio-test-sbt"      % "2.0.19" % Test,
-  "dev.zio" %% "zio-test-magnolia" % "2.0.19" % Test,
+  "dev.zio" %% "zio-test-sbt"      % zioVersion % Test,
+  "dev.zio" %% "zio-test-magnolia" % zioVersion % Test,
   "dev.zio" %% "zio-mock"          % "1.0.0-RC12" % Test
 )
 
@@ -55,15 +55,15 @@ lazy val testContainersDependencies = Seq(
 )
 
 lazy val loggingDependencies = Seq(
-  "org.slf4j"      % "slf4j-api"       % "2.0.9",
-  "ch.qos.logback" % "logback-classic" % "1.4.11"
+  "org.slf4j"            % "slf4j-api"       % "2.0.16",
+  "ch.qos.logback"       % "logback-classic" % "1.5.15"
 )
 
 lazy val databaseDependencies = Seq(
-  "dev.zio"       %% "zio-interop-cats"  % "23.1.0.0",
-  "org.tpolecat"  %% "doobie-hikari"     % "1.0.0-RC4",
-  "com.mysql"      % "mysql-connector-j" % "8.2.0",
-  "com.h2database" % "h2" % "2.2.224"    % Test
+  "dev.zio"       %% "zio-interop-cats"  % "23.1.0.3",
+  "org.tpolecat"  %% "doobie-hikari"     % "1.0.0-RC6",
+  "com.mysql"      % "mysql-connector-j" % "9.1.0",
+  "com.h2database" % "h2" % "2.3.232"    % Test
 )
 
 lazy val root = (project in file("."))
